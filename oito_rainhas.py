@@ -39,10 +39,28 @@ class OitoRainhas:
         verifica_matriz: bool
         if self._matriz is None:
             verifica_matriz = False
-        elif self._matriz == []:
+        elif isinstance(self._matriz, list):
+            if self._matriz == []:
+                verifica_matriz = False
+            elif self._checa_numero_linhas() is False:
+                verifica_matriz = False
+            else:
+                verifica_matriz = True
+        else:
             verifica_matriz = False
 
         return verifica_matriz
+
+    def _checa_numero_linhas(self) -> bool:
+        """retorna True se a matriz do tabuleiro possui 8 linhas
+        e False caso contrario """
+        numero_linhas_valido: bool = len(self._matriz) == 8
+
+        return numero_linhas_valido
+
+    def carrega_tabuleiro(self, matriz: list[list[int]]) -> None:
+        "carrega um novo tabuleiro no objeto da classe OitoRainhas"
+        self._matriz = matriz
 
 def main() -> None:
     "funcao principal"
