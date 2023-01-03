@@ -8,9 +8,18 @@ def test_criacao_classes() -> None:
     assert str(oito_rainhas) == "Classe oito rainhas vazia"
 
 
-def test_tabuleiro_vazio() -> None:
-    """testa se o tabuleiro(matriz) fornecido para o objeto
-    oito_rainhas e vazio"""
+def test_tabuleiro_ausente() -> None:
+    """testa se o tabuleiro(matriz) foi de fato fornecido para o objeto
+    oito_rainhas"""
     oito_rainhas: OitoRainhas = OitoRainhas()
+
+    assert oito_rainhas.verifica_tabuleiro() == -1
+
+def test_tabuleiro_vazio() -> None:
+    """ testa se o tabuleiro fornecido esta vazio """
+
+    tabuleiro: list[list[int]]
+    tabuleiro = []
+    oito_rainhas: OitoRainhas = OitoRainhas(tabuleiro)
 
     assert oito_rainhas.verifica_tabuleiro() == -1

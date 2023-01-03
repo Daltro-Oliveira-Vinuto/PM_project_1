@@ -39,6 +39,8 @@ class OitoRainhas:
         verifica_matriz: bool
         if self._matriz is None:
             verifica_matriz = False
+        elif self._matriz == []:
+            verifica_matriz = False
 
         return verifica_matriz
 
