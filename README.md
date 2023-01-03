@@ -31,7 +31,7 @@
 <p> Obs.: O python 3.10, pytest e pylint necessitam estar instalados no SO.
 	<ul>
 		<li> Para executar o programa digite: python oito_rainhas.py </li>
-		<li> Para realizar os testes digite: pytest -v </li>
+		<li> Para realizar os testes digite: pytest -v testa_oito_rainhas.py </li>
 		<li> Para executar o analisador estático de código: pylint oito_rainhas.py </li>
 	</ul>
 </p>
