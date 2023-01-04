@@ -65,3 +65,30 @@ def test_tabuleiro_numero_colunas() -> None:
     tabuleiro = [ [0 for _ in range(10) ] for _ in range(8) ]
     oito_rainhas.carrega_tabuleiro(tabuleiro)
     assert oito_rainhas.verifica_tabuleiro() == -1
+
+
+def insere_oito_rainhas(tabuleiro: list[list[int]]) -> list[list[int]]:
+    "insere 8 rainhas no tabuleiro, isso e, transforma a primeira coluna em 1s"
+    for index_i, _ in enumerate(tabuleiro):
+        for index_j, _ in enumerate(tabuleiro[index_i]):
+            if index_j == 0:
+                tabuleiro[index_i][index_j] = 1
+    return tabuleiro
+
+def test_numero_rainhas() -> None:
+    "Verifica se existem 8 rainhas no tabuleiro"
+
+    tabuleiro: list[list[int]] = [[0 for _ in range(8)] for _ in range(8)]
+    oito_rainhas: OitoRainhas = OitoRainhas(tabuleiro)
+
+    assert oito_rainhas.verifica_tabuleiro() == -1
+
+    tabuleiro = [[1 for _ in range(8)] for _ in range(8)]
+    oito_rainhas.carrega_tabuleiro(tabuleiro)
+    assert oito_rainhas.verifica_tabuleiro() == -1
+
+
+    tabuleiro_invalido: list[list[int]] = [ [0 for _ in range(8) ] for _ in range(8) ]
+    tabuleiro_valido = insere_oito_rainhas(tabuleiro_invalido.copy())
+    oito_rainhas.carrega_tabuleiro(tabuleiro_valido)
+    assert oito_rainhas.verifica_tabuleiro() == 0

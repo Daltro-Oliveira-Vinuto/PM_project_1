@@ -47,12 +47,27 @@ class OitoRainhas:
                 verifica_matriz = False
             elif self._checa_numero_colunas() is False:
                 verifica_matriz = False
+            elif self._checa_numero_rainhas() is False:
+                verifica_matriz = False
             else:
                 verifica_matriz = True
         else:
             verifica_matriz = False
 
         return verifica_matriz
+
+    def _checa_numero_rainhas(self) -> bool:
+        """Retorna True se a matriz do tabuleiro contem 8 rainhas(0)
+        caso contrario retorna False """
+        numero_rainhas: int = 0
+        for linha in self._matriz:
+            for elemento_coluna in linha:
+                if elemento_coluna == 1:
+                    numero_rainhas+= 1
+
+        numero_rainhas_valido: bool = numero_rainhas == OitoRainhas.dimensao
+
+        return numero_rainhas_valido
 
     def _checa_numero_linhas(self) -> bool:
         """retorna True se a matriz do tabuleiro possui 8 linhas
