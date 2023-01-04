@@ -27,17 +27,41 @@ def test_tabuleiro_vazio() -> None:
 
 
 def test_tabuleiro_numero_linhas() -> None:
-    """testa se o tabuleiro fornecido nao contem 8 linhas"""
+    """testa se o tabuleiro fornecido contem 8 linhas"""
 
-    tabuleiro: list[list[int]] = [[]*7]
+    tabuleiro: list[list[int]] = [ [] for _ in range(7) ]
     oito_rainhas: OitoRainhas = OitoRainhas(tabuleiro)
 
     assert oito_rainhas.verifica_tabuleiro() == -1
 
-    tabuleiro = []*6
+    tabuleiro = [ [] for _ in range(6) ]
     oito_rainhas.carrega_tabuleiro(tabuleiro)
     assert oito_rainhas.verifica_tabuleiro() == -1
 
-    tabuleiro = []*9
+    tabuleiro = [ [] for _ in range(9) ]
+    oito_rainhas.carrega_tabuleiro(tabuleiro)
+    assert oito_rainhas.verifica_tabuleiro() == -1
+
+    tabuleiro = [ [] for _ in range(10) ]
+    oito_rainhas.carrega_tabuleiro(tabuleiro)
+    assert oito_rainhas.verifica_tabuleiro() == -1
+
+def test_tabuleiro_numero_colunas() -> None:
+    "Testa se o tabuleiro fornecido contem 8 colunas"
+
+    tabuleiro: list[list[int]] = [[0 for _ in range(7)] for _ in range(8)]
+    oito_rainhas: OitoRainhas = OitoRainhas(tabuleiro)
+    assert oito_rainhas.verifica_tabuleiro() == -1
+
+    tabuleiro = [ [0 for _ in range(6) ] for _ in range(8) ]
+    oito_rainhas.carrega_tabuleiro(tabuleiro)
+    assert oito_rainhas.verifica_tabuleiro() == -1
+
+    tabuleiro = [ [0 for _ in range(9) ] for _ in range(8) ]
+    oito_rainhas.carrega_tabuleiro(tabuleiro)
+    assert oito_rainhas.verifica_tabuleiro() == -1
+
+
+    tabuleiro = [ [0 for _ in range(10) ] for _ in range(8) ]
     oito_rainhas.carrega_tabuleiro(tabuleiro)
     assert oito_rainhas.verifica_tabuleiro() == -1

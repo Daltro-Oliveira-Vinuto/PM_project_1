@@ -7,6 +7,7 @@ class OitoRainhas:
     esperados para verificar/resolver o
     problema das oito rainhas"""
     __slots__ = ["_matriz"]
+    dimensao: int = 8
     def __init__(self, matriz: Union[ (list[list[int]], Any) ] = None ) -> None:
         self._matriz: Union[ list[list[int]], Any ] = matriz
 
@@ -44,6 +45,8 @@ class OitoRainhas:
                 verifica_matriz = False
             elif self._checa_numero_linhas() is False:
                 verifica_matriz = False
+            elif self._checa_numero_colunas() is False:
+                verifica_matriz = False
             else:
                 verifica_matriz = True
         else:
@@ -54,9 +57,20 @@ class OitoRainhas:
     def _checa_numero_linhas(self) -> bool:
         """retorna True se a matriz do tabuleiro possui 8 linhas
         e False caso contrario """
-        numero_linhas_valido: bool = len(self._matriz) == 8
+        numero_linhas_valido: bool = len(self._matriz) == OitoRainhas.dimensao
 
         return numero_linhas_valido
+
+    def _checa_numero_colunas(self) -> bool:
+        """Retorna True se a matriz do tabuleiro tem 8 colunas
+        e False caso contrario"""
+        numero_colunas_valido: bool = True
+
+        for linha in self._matriz:
+            if len(linha) != OitoRainhas.dimensao:
+                numero_colunas_valido = False
+
+        return numero_colunas_valido
 
     def carrega_tabuleiro(self, matriz: list[list[int]]) -> None:
         "carrega um novo tabuleiro no objeto da classe OitoRainhas"
