@@ -1,12 +1,15 @@
 "modulo com os testes necessarios para o modulo oito_rainhas"
+
+from __future__ import annotations
 from oito_rainhas import OitoRainhas
+from modulo_auxiliar import Matriz
 
 def test_criacao_da_classe() -> None:
     "testa se a classe foi criada e instanciada"
     oito_rainhas: OitoRainhas = OitoRainhas()
 
     assert isinstance(oito_rainhas, OitoRainhas)
-    assert str(oito_rainhas) == "Classe oito rainhas vazia"
+    assert str(oito_rainhas) == "A classe oito rainhas esta vazia"
 
 
 def test_tabuleiro_ausente() -> None:
@@ -91,4 +94,23 @@ def test_numero_rainhas() -> None:
     tabuleiro_invalido: list[list[int]] = [ [0 for _ in range(8) ] for _ in range(8) ]
     tabuleiro_valido = insere_oito_rainhas(tabuleiro_invalido.copy())
     oito_rainhas.carrega_tabuleiro(tabuleiro_valido)
+    assert oito_rainhas.verifica_tabuleiro() != -1
+
+def test_rainhas_ataca_vertical() -> None:
+    "Verifica se alguma das rainhas ataca as outras na vertical"
+
+    #as rainhas das linhas 2 e 8 se atacam na verti
+    tabuleiro: list[list[int]] = [
+        [0,0,0,0,1,0,0,0],
+        [0,1,0,0,0,0,0,0],
+        [0,0,0,1,0,0,0,0],
+        [0,0,0,0,0,0,1,0],
+        [0,0,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,1],
+        [0,0,0,0,0,1,0,0],
+        [0,1,0,0,0,0,0,0]
+    ]
+
+    oito_rainhas: OitoRainhas = OitoRainhas(tabuleiro)
+
     assert oito_rainhas.verifica_tabuleiro() == 0

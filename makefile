@@ -6,14 +6,17 @@ run:
 
 test:
 	pytest -v testa_oito_rainhas.py
+	pytest -v
 
 lint:
 	pylint oito_rainhas.py 
 	pylint testa_oito_rainhas.py
+	pylint modulo_auxiliar.py
 
 mypy:
 	mypy oito_rainhas.py
 	mypy testa_oito_rainhas.py
+	mypy modulo_auxiliar.py
 
 # abre todos os arquivos no sublime
 open:
