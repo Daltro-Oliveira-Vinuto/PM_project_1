@@ -96,7 +96,7 @@ def test_numero_rainhas() -> None:
     oito_rainhas.carrega_tabuleiro(tabuleiro_valido)
     assert oito_rainhas.verifica_tabuleiro() != -1
 
-def test_rainhas_ataca_vertical() -> None:
+def test_rainhas_atacam_vertical() -> None:
     "Verifica se alguma das rainhas ataca as outras na vertical"
 
     #as rainhas das linhas 2 e 8 se atacam na verti
@@ -109,6 +109,25 @@ def test_rainhas_ataca_vertical() -> None:
         [0,0,0,0,0,0,0,1],
         [0,0,0,0,0,1,0,0],
         [0,1,0,0,0,0,0,0]
+    ]
+
+    oito_rainhas: OitoRainhas = OitoRainhas(tabuleiro)
+
+    assert oito_rainhas.verifica_tabuleiro() == 0
+
+def test_rainhas_atacam_horizontal() -> None:
+    "Verifica se alguma das rainhas ataca as outras na horizontal"
+
+    # as duas rainhas na linha 1 se atacam
+    tabuleiro: list[list[int]] = [
+        [1,0,0,0,1,0,0,0],
+        [0,1,0,0,0,0,0,0],
+        [0,0,0,1,0,0,0,0],
+        [0,0,0,0,0,0,1,0],
+        [0,0,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,1],
+        [0,0,0,0,0,1,0,0],
+        [0,0,0,0,0,0,0,0]
     ]
 
     oito_rainhas: OitoRainhas = OitoRainhas(tabuleiro)

@@ -47,11 +47,19 @@ class OitoRainhas:
         else:
             if self._checa_ataque_vertical() is False:
                 solucao = 0
+            elif self._checa_ataque_horizontal() is False:
+                solucao = 0
             else:
                 solucao = 1
 
         return solucao
 
+    def _checa_ataque_horizontal(self) -> bool:
+        "Retorna True se as rainhas nao se atacam na horizontal e False caso contrario"
+        ataque_impossivel: bool
+        ataque_impossivel = self._matriz.conta_maximo_ocorrencias_linha(1) == 1
+
+        return ataque_impossivel
     def _checa_ataque_vertical(self) -> bool:
         """Funcao retorna True as rainhas nao se atacam na vertical
         e retorna False caso ao menos uma delas se ataquem"""
