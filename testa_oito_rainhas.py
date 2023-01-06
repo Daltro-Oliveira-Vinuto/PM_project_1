@@ -171,3 +171,22 @@ def test_rainhas_atacam_diagonal_secundaria() -> None:
     oito_rainhas: OitoRainhas = OitoRainhas(tabuleiro)
 
     assert oito_rainhas.verifica_tabuleiro() == 0
+
+def test_verifica_tabuleiro_contem_solucao() -> None:
+    "Verifica se uma possivel solucao do problema das 8 rainhas é reconhecida"
+
+    tabuleiro: list[list[int]] = [
+        [0,0,0,0,1,0,0,0],
+        [0,1,0,0,0,0,0,0],
+        [0,0,0,1,0,0,0,0],
+        [0,0,0,0,0,0,1,0],
+        [0,0,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,1],
+        [0,0,0,0,0,1,0,0],
+        [1,0,0,0,0,0,0,0]
+    ]
+
+
+    oito_rainhas: OitoRainhas = OitoRainhas(tabuleiro)
+
+    assert oito_rainhas.verifica_tabuleiro() == 1
