@@ -17,7 +17,7 @@ class OitoRainhas:
             self._matriz: Matriz = Matriz(matriz)
 
     def __del__(self) -> None:
-        "nao precisa desalocar nenhum recurso"
+        "desaloca recursos"
         return None
 
     def __str__(self) -> str:
@@ -62,9 +62,8 @@ class OitoRainhas:
     def _checa_validade(self) -> bool:
         "verifica se a matriz e valida ou nao"
         verifica_matriz: bool
-        if self._matriz is None:
-            verifica_matriz = False
-        elif isinstance(self._matriz, matriz):
+   
+        if isinstance(self._matriz, Matriz):
             if self._matriz == Matriz() or self._matriz.matriz == []:
                 verifica_matriz = False
             elif self._checa_numero_linhas() is False:
@@ -83,14 +82,8 @@ class OitoRainhas:
     def _checa_numero_rainhas(self) -> bool:
         """Retorna True se a matriz do tabuleiro contem 8 rainhas(0)
         caso contrario retorna False """
-        matriz: list[list[Any]] = self._matriz.matriz
-        numero_rainhas: int = 0
-        for linha in matriz:
-            for elemento_coluna in linha:
-                if elemento_coluna == 1:
-                    numero_rainhas+= 1
 
-        numero_rainhas_valido: bool = numero_rainhas == OitoRainhas.dimensao
+        numero_rainhas_valido: bool = self._matriz.conta_ocorrencias(1) == OitoRainhas.dimensao
 
         return numero_rainhas_valido
 

@@ -64,21 +64,39 @@ class Matriz:
             for index_j, coluna in enumerate(linha):
                 matriz_transposta[index_j][index_i] = coluna
 
-        print(matriz(matriz_transposta))
-        return matriz(matriz_transposta)
+        return Matriz(matriz_transposta)
 
     def __eq__(self,other) -> bool:
         "Retorna True se as duas matrizes sao iguais e falso caso contrario"
 
         encontrou_diferenca: bool = False
 
-        for index_i, linha in enumerate(self._matriz):
-            for index_j, _ in enumerate(linha):
-                if self._matriz[index_i][index_j] != other.matriz[index_i][index_j]:
-                    encontrou_diferenca = True
+        if self.get_numero_linhas() == other.get_numero_linhas() and\
+            self.get_numero_colunas() == other.get_numero_colunas():
+
+
+            for index_i, linha in enumerate(self._matriz):
+                for index_j, _ in enumerate(linha):
+                    if self._matriz[index_i][index_j] != other.matriz[index_i][index_j]:
+                        encontrou_diferenca = True
+
+        else:
+            encontrou_diferenca = True
 
         return not encontrou_diferenca
 
     def __ne__(self, other) -> bool:
         "Retorna True se as duas matrizes forem diferentes e False caso contrario"
         return not self.__eq__(other)
+
+
+    def conta_ocorrencias(self, valor: Any) -> int:
+        numero_ocorrencias: int = 0
+
+        for index_i, linha in enumerate(self._matriz):
+            for index_j, coluna in enumerate(linha):
+                if coluna == valor:
+                    numero_ocorrencias+= 1
+
+
+        return numero_ocorrencias

@@ -5,8 +5,8 @@ run:
 	python oito_rainhas.py
 
 test:
-	pytest -v testa_oito_rainhas.py
 	pytest -v
+	pytest -v testa_oito_rainhas.py
 
 lint:
 	pylint oito_rainhas.py 
