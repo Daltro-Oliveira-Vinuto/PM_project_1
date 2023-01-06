@@ -51,6 +51,8 @@ class OitoRainhas:
                 solucao = 0
             elif self._checa_ataque_diagonal_principal() is False:
                 solucao = 0
+            elif self._checa_ataque_diagonal_secundaria() is False:
+                solucao = 0
             else:
                 solucao = 1
 
@@ -62,6 +64,15 @@ class OitoRainhas:
         ataque_impossivel: bool
         ataque_impossivel = \
             self._matriz.maximo_ocorrencias_diagonal_principal(1) == 1
+
+        return ataque_impossivel
+
+    def _checa_ataque_diagonal_secundaria(self) -> bool:
+        """Retorna False se as rainhas se atacam na diagonal secundaria
+        e True caso contrario"""
+        ataque_impossivel: bool
+        ataque_impossivel = \
+            self._matriz.maximo_ocorrencias_diagonal_secundaria(1) == 1
 
         return ataque_impossivel
 

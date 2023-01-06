@@ -152,3 +152,22 @@ def test_rainhas_atacam_diagonal_principal() -> None:
     oito_rainhas: OitoRainhas = OitoRainhas(tabuleiro)
 
     assert oito_rainhas.verifica_tabuleiro() == 0
+
+def test_rainhas_atacam_diagonal_secundaria() -> None:
+    "Verifica se alguma das rainhas ataca outra na diagonal secundaria"
+
+    # as duas rainhas nas posicoes 7x6 e 8x5 se atacam na diagonal secundaria
+    tabuleiro: list[list[int]] = [
+        [0,0,0,0,1,0,0,0],
+        [0,0,0,0,0,0,0,1],
+        [0,0,0,1,0,0,0,0],
+        [0,0,0,0,0,0,1,0],
+        [0,0,1,0,0,0,0,0],
+        [0,1,0,0,0,0,0,0],
+        [0,0,0,0,0,1,0,0],
+        [1,0,0,0,0,0,0,0]
+    ]
+
+    oito_rainhas: OitoRainhas = OitoRainhas(tabuleiro)
+
+    assert oito_rainhas.verifica_tabuleiro() == 0
