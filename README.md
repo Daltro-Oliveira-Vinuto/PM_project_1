@@ -21,6 +21,8 @@
 		<li> Para realizar a verificação de tipos com o mypy: make mypy </li>
 		<li> Para executar os testes, analisador estático e o mypy digite: make </li>
 	</ul>
+	<li>
+		Para abrir todos os arquivos no editor de código Sublime digite: make open </li>
 </ul>
 
 

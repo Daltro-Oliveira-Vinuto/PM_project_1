@@ -18,10 +18,12 @@ mypy:
 	mypy testa_oito_rainhas.py
 	mypy modulo_auxiliar.py
 
-# abre todos os arquivos no sublime
+# abre todos os arquivos no editor de código Sublime
 open:
 	subl oito_rainhas.py
 	subl testa_oito_rainhas.py
+	subl modulo_auxiliar.py 
+
 	subl makefile
 	subl README.md
 	subl .gitignore
