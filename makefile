@@ -5,24 +5,27 @@ run:
 	python oito_rainhas.py
 
 test:
-	pytest -v
+	pytest -v test_matriz.py
 	pytest -v testa_oito_rainhas.py
 
 lint:
 	pylint oito_rainhas.py 
 	pylint testa_oito_rainhas.py
-	pylint modulo_auxiliar.py
+	pylint matriz.py
+	pylint test_matriz.py
 
 mypy:
 	mypy oito_rainhas.py
 	mypy testa_oito_rainhas.py
-	mypy modulo_auxiliar.py
+	mypy matriz.py
+	mypy test_matriz.py
 
 # abre todos os arquivos no editor de código Sublime
 open:
 	subl oito_rainhas.py
 	subl testa_oito_rainhas.py
-	subl modulo_auxiliar.py 
+	subl matriz.py
+	subl test_matriz.py
 
 	subl makefile
 	subl README.md

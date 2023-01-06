@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 from typing import Union, Any
-from modulo_auxiliar import Matriz
+from matriz import Matriz
 
 class OitoRainhas:
     """classe com os metodos e atributos
