@@ -38,20 +38,55 @@ def test_maximo_ocorrencias_linha():
 							  [4,4,4]]
 	matriz: Matriz = Matriz(lista)
 
-	assert matriz.conta_maximo_ocorrencias_linha(7) == 2
-	assert matriz.conta_maximo_ocorrencias_linha(2) == 1
-	assert matriz.conta_maximo_ocorrencias_linha(10) == 0
-	assert matriz.conta_maximo_ocorrencias_linha(4) == 3
+	assert matriz.maximo_ocorrencias_linha(7) == 2
+	assert matriz.maximo_ocorrencias_linha(2) == 1
+	assert matriz.maximo_ocorrencias_linha(10) == 0
+	assert matriz.maximo_ocorrencias_linha(4) == 3
 
 
 def test_maximo_ocorrencias_coluna():
 	"testa o numero maximo da ocorrencia de uma valor nas colunas da matriz"
-	lista: lista[list[int]] = [[5,7,4],\
+	lista: list[list[int]] = [[5,7,4],\
 	                           [2,6,4],\
 	                           [3,7,4]]
 	matriz: Matriz = Matriz(lista)
 
-	assert matriz.conta_maximo_ocorrencias_coluna(7) == 2
-	assert matriz.conta_maximo_ocorrencias_coluna(2) == 1
-	assert matriz.conta_maximo_ocorrencias_coluna(10) == 0
-	assert matriz.conta_maximo_ocorrencias_coluna(4) == 3
+	assert matriz.maximo_ocorrencias_coluna(7) == 2
+	assert matriz.maximo_ocorrencias_coluna(2) == 1
+	assert matriz.maximo_ocorrencias_coluna(10) == 0
+	assert matriz.maximo_ocorrencias_coluna(4) == 3
+
+def test_maximo_ocorrencias_diagonal_principal():
+	"testa o numero maximo de ocorrencias de um valor em todas as diagonais principais"
+
+	lista: list[list[int]] = [[5,1,3],
+							  [4,5,1],
+							  [9,8,5]]
+
+	matriz: Matriz = Matriz(lista)
+
+	assert matriz.maximo_ocorrencias_diagonal_principal(3) == 1
+	assert matriz.maximo_ocorrencias_diagonal_principal(1) == 2
+	assert matriz.maximo_ocorrencias_diagonal_principal(5) == 3
+	assert matriz.maximo_ocorrencias_diagonal_principal(4) == 1
+	assert matriz.maximo_ocorrencias_diagonal_principal(8) == 1
+	assert matriz.maximo_ocorrencias_diagonal_principal(9) == 1
+	assert matriz.maximo_ocorrencias_diagonal_principal(10) == 0
+
+def test_maximo_ocorrencias_diagonal_secundaria():
+	"testa o numero maximo de ocorrencias de um valor em todas as diagonais secundarias"
+
+	lista: list[list[int]] = [[3,1,5],
+							  [1,5,8],
+							  [5,4,9]]
+
+	matriz: Matriz = Matriz(lista)
+
+	assert matriz.maximo_ocorrencias_diagonal_secundaria(3) == 1
+	assert matriz.maximo_ocorrencias_diagonal_secundaria(1) == 2
+	assert matriz.maximo_ocorrencias_diagonal_secundaria(5) == 3
+	assert matriz.maximo_ocorrencias_diagonal_secundaria(8) == 1
+	assert matriz.maximo_ocorrencias_diagonal_secundaria(4) == 1
+	assert matriz.maximo_ocorrencias_diagonal_secundaria(9) == 1
+	assert matriz.maximo_ocorrencias_diagonal_secundaria(10) == 0
+	
