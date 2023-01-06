@@ -29,3 +29,29 @@ def test_conta_ocorrencias():
 	assert matriz.conta_ocorrencias(5) == 1
 	assert matriz.conta_ocorrencias(6) == 2
 	assert matriz.conta_ocorrencias(2) == 3
+
+
+def test_maximo_ocorrencias_linha():
+	"testa o numero maximo da ocorrencia de uma valor nas linhas da matriz"
+	lista: list[list[int]] = [[5,2,3],\
+							  [7,6,7],\
+							  [4,4,4]]
+	matriz: Matriz = Matriz(lista)
+
+	assert matriz.conta_maximo_ocorrencias_linha(7) == 2
+	assert matriz.conta_maximo_ocorrencias_linha(2) == 1
+	assert matriz.conta_maximo_ocorrencias_linha(10) == 0
+	assert matriz.conta_maximo_ocorrencias_linha(4) == 3
+
+
+def test_maximo_ocorrencias_coluna():
+	"testa o numero maximo da ocorrencia de uma valor nas colunas da matriz"
+	lista: lista[list[int]] = [[5,7,4],\
+	                           [2,6,4],\
+	                           [3,7,4]]
+	matriz: Matriz = Matriz(lista)
+
+	assert matriz.conta_maximo_ocorrencias_coluna(7) == 2
+	assert matriz.conta_maximo_ocorrencias_coluna(2) == 1
+	assert matriz.conta_maximo_ocorrencias_coluna(10) == 0
+	assert matriz.conta_maximo_ocorrencias_coluna(4) == 3

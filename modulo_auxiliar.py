@@ -50,7 +50,7 @@ class Matriz:
         self._matriz = new_matriz
 
 
-    def transposta(self) -> matriz:
+    def transposta(self) -> Matriz:
         "Retorna uma matriz transposta a matriz fornecida"
 
         numero_linhas_transposta = self.get_numero_colunas()
@@ -89,14 +89,45 @@ class Matriz:
         "Retorna True se as duas matrizes forem diferentes e False caso contrario"
         return not self.__eq__(other)
 
-
     def conta_ocorrencias(self, valor: Any) -> int:
+        "Retorna o numero de ocorrencia de 'valor' dentro da matriz"
         numero_ocorrencias: int = 0
+        for linha in self._matriz:
+            for coluna in linha:
+                if coluna == valor:
+                    numero_ocorrencias+= 1
+        return numero_ocorrencias
 
-        for index_i, linha in enumerate(self._matriz):
-            for index_j, coluna in enumerate(linha):
+    def conta_maximo_ocorrencias_linha(self, valor: Any) -> int:
+        "Retorna o numero maximo de vezes que 'valor' aparece em cada linha"
+        numero_maximo_ocorrencias: int = 0
+        for linha in self._matriz:
+            numero_ocorrencias:int  = 0
+            for coluna in linha:
                 if coluna == valor:
                     numero_ocorrencias+= 1
 
+            numero_maximo_ocorrencias = \
+                maior(numero_ocorrencias, numero_maximo_ocorrencias)
 
-        return numero_ocorrencias
+        return numero_maximo_ocorrencias
+
+    def conta_maximo_ocorrencias_coluna(self, valor: Any) -> int:
+        "Retorna o numero maximo de vezes que 'valor' aparece em cada coluna"
+        numero_maximo_ocorrencias: int
+
+        matriz_transposta: Matriz = self.transposta()
+        numero_maximo_ocorrencias = \
+            matriz_transposta.conta_maximo_ocorrencias_linha(valor)
+
+        return numero_maximo_ocorrencias
+
+def maior(valor_a: Any, valor_b: Any) -> Any:
+    "Retorna o maior entre dois valores"
+    maior_valor: Any
+    if valor_a >= valor_b:
+        maior_valor = valor_a
+    else:
+        maior_valor = valor_b
+
+    return maior_valor

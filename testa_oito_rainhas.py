@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 from oito_rainhas import OitoRainhas
-from modulo_auxiliar import Matriz
+#from modulo_auxiliar import Matriz
 
 def test_criacao_da_classe() -> None:
     "testa se a classe foi criada e instanciada"

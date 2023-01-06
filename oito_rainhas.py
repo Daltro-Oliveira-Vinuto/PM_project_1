@@ -11,10 +11,11 @@ class OitoRainhas:
     __slots__ = ["_matriz"]
     dimensao: int = 8
     def __init__(self, matriz: Union[ list[list[int]], Any] = None ) -> None:
+        self._matriz: Matriz
         if matriz is None:
-            self._matriz: Matriz = Matriz()
+            self._matriz = Matriz()
         else:
-            self._matriz: Matriz = Matriz(matriz)
+            self._matriz = Matriz(matriz)
 
     def __del__(self) -> None:
         "desaloca recursos"
@@ -56,13 +57,12 @@ class OitoRainhas:
         e retorna False caso ao menos uma delas se ataquem"""
         ataque_impossivel: bool
 
-        ataque_impossivel = True
+        ataque_impossivel = self._matriz.conta_maximo_ocorrencias_coluna(1) == 1
         return ataque_impossivel
 
     def _checa_validade(self) -> bool:
         "verifica se a matriz e valida ou nao"
         verifica_matriz: bool
-   
         if isinstance(self._matriz, Matriz):
             if self._matriz == Matriz() or self._matriz.matriz == []:
                 verifica_matriz = False
