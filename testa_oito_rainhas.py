@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from oito_rainhas import OitoRainhas
+from matriz import Matriz
 
 def test_criacao_da_classe() -> None:
     "testa se a classe foi criada e instanciada"
@@ -189,3 +190,23 @@ def test_verifica_tabuleiro_contem_solucao() -> None:
     oito_rainhas: OitoRainhas = OitoRainhas(tabuleiro)
 
     assert oito_rainhas.verifica_tabuleiro() == 1
+
+def test_verifica_conversao_string_matriz() -> None:
+    "Verifica se foi feita a conversao correta de string para matriz(lista de listas)"
+
+    tabuleiro: list[list[int]] = [
+        [0,0,0,0,1,0,0,0],
+        [0,1,0,0,0,0,0,0],
+        [0,0,0,1,0,0,0,0],
+        [0,0,0,0,0,0,1,0],
+        [0,0,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,1],
+        [0,0,0,0,0,1,0,0],
+        [1,0,0,0,0,0,0,0]
+    ]
+    caracteres: str = \
+   "0000100001000000000100000000001000100000000000010000010010000000"
+    oito_rainhas: OitoRainhas = OitoRainhas()
+    oito_rainhas.carrega_string(caracteres)
+
+    assert oito_rainhas.tabuleiro == Matriz(tabuleiro)
