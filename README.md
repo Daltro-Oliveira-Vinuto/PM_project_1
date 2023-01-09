@@ -14,7 +14,8 @@
 	 Esse projeto deve ser executado preferencialmente em um computador com SO Windows com makefile instalado, ou em computador com SO Linux. Para isso siga as seguintes instruções.
 </p>
 <ul> Obs.: O python 3.10, pytest e pylint necessitam estar instalados no SO.
-	<li> Para executar o programa digite: make run </li>
+	<li> Para executar o programa no Windows digite: make run </li>
+	<li> Para executar o programa no Linux digite: make run3 </li>
 	<li> Para realizar os testes digite: make test </li>
 	<li> Para executar o analisador estático de código: make lint </li>
 	<ul> Obs.: Para executar as próximas duas instruções o módulo mypy necessita estar instalado
@@ -32,7 +33,8 @@
 
 <p> Obs.: O python 3.10, pytest e pylint necessitam estar instalados no SO.
 	<ul>
-		<li> Para executar o programa digite: python oito_rainhas.py </li>
+		<li> Para executar o programa no Windows digite: python oito_rainhas.py </li>
+		<li> Para executar o program no Linux digite: python3 oito_rainhas.py </li>
 		<li> Para realizar os testes digite: pytest -v testa_oito_rainhas.py </li>
 		<li> Para executar o analisador estático de código: pylint oito_rainhas.py </li>
 	</ul>

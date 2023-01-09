@@ -4,6 +4,9 @@ go: test lint mypy
 run:
 	python oito_rainhas.py
 
+run3:
+	python3 oito_rainhas.py
+
 test:
 	pytest -vv test_matriz.py
 	pytest -vv testa_oito_rainhas.py
