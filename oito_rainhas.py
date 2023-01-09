@@ -163,19 +163,21 @@ class OitoRainhas:
 
 def main() -> None:
     "funcao principal"
+
     oito_rainhas: OitoRainhas = OitoRainhas()
 
-    caracteres: str = "0000100001000000000100000000001000100000000000010000010010000000"
+    caracteres: str = input("Digite os caracteres correspondes ao tabuleiro: ")
     oito_rainhas.carrega_string(caracteres)
     solucao_valida: int = oito_rainhas.verifica_tabuleiro()
 
+    print()
 
     if solucao_valida == -1:
-        print("O tabuleiro fornecido e invalido")
+        print("O tabuleiro fornecido é inválido")
     elif solucao_valida == 0:
-        print("O tabuleiro fornecido nao e uma solucao para o problema")
+        print("O tabuleiro fornecido não é uma solução para o problema")
     elif solucao_valida == 1:
-        print("O tabuleiro fornecido e uma solucao para o problema")
+        print("O tabuleiro fornecido é uma solução para o problema")
 
 if __name__ == "__main__":
     main()
