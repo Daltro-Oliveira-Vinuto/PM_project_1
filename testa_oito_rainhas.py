@@ -210,3 +210,16 @@ def test_verifica_conversao_string_matriz() -> None:
     oito_rainhas.carrega_string(caracteres)
 
     assert oito_rainhas.tabuleiro == Matriz(tabuleiro)
+
+
+def test_verifica_string_resolve_problema() -> None:
+    """Verifica se uma possivel solucao contida em uma string,
+    para o problema das 8 rainhas  e reconhecida"""
+
+    oito_rainhas: OitoRainhas = OitoRainhas()
+    caracteres: str = \
+    "0000100001000000000100000000001000100000000000010000010010000000"
+
+    oito_rainhas.carrega_string(caracteres)
+
+    assert oito_rainhas.verifica_tabuleiro() == 1
