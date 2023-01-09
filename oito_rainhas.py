@@ -151,14 +151,24 @@ class OitoRainhas:
         novo_tabuleiro: list[list[int]] = []
         nova_linha: list[int] = []
 
-        for caractere in string:
-            nova_linha.append(int(caractere))
+        contem_caractere_invalido: bool = False
+        if isinstance(string, str):
+            for caractere in string:
+                if caractere.isdigit():
+                    numero: int = int(caractere)
+                    if numero in (1,0):
+                        nova_linha.append(int(caractere))
+                    else:
+                        contem_caractere_invalido = True
+                else:
+                    contem_caractere_invalido = True
 
-            if len(nova_linha) == 8:
-                novo_tabuleiro.append(nova_linha.copy())
-                nova_linha.clear()
+                if len(nova_linha) == 8:
+                    novo_tabuleiro.append(nova_linha.copy())
+                    nova_linha.clear()
 
-        self.carrega_tabuleiro(novo_tabuleiro)
+        if not contem_caractere_invalido:
+            self.carrega_tabuleiro(novo_tabuleiro)
 
 
 def main() -> None:

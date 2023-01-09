@@ -212,6 +212,27 @@ def test_verifica_conversao_string_matriz() -> None:
     assert oito_rainhas.tabuleiro == Matriz(tabuleiro)
 
 
+def test_verifica_caractere_invalido() -> None:
+    """Testa se a string fornecida contem um caractere invalido
+    ,nesse caso ela nao sera carregada no objeto OitoRainhas"""
+
+    oito_rainhas: OitoRainhas = OitoRainhas()
+
+    # O primeiro caractere(a) é invalido
+    caracteres: str = \
+   "a000100001000000000100000000001000100000000000010000010010000000"
+    assert oito_rainhas.tabuleiro == Matriz()
+    oito_rainhas.carrega_string(caracteres)
+    assert oito_rainhas.tabuleiro == Matriz()
+
+    # O primeiro caractere(3) é invalido
+    caracteres = \
+   "3000100001000000000100000000001000100000000000010000010010000000"
+    assert oito_rainhas.tabuleiro == Matriz()
+    oito_rainhas.carrega_string(caracteres)
+    assert oito_rainhas.tabuleiro == Matriz()
+
+
 def test_verifica_string_resolve_problema() -> None:
     """Verifica se uma possivel solucao contida em uma string,
     para o problema das 8 rainhas  e reconhecida"""
