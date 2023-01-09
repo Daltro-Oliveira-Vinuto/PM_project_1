@@ -166,7 +166,7 @@ def main() -> None:
 
     oito_rainhas: OitoRainhas = OitoRainhas()
 
-    caracteres: str = input("Digite os caracteres correspondes ao tabuleiro: ")
+    caracteres: str = input("Digite os caracteres correspondentes ao tabuleiro: ")
     oito_rainhas.carrega_string(caracteres)
     solucao_valida: int = oito_rainhas.verifica_tabuleiro()
 
